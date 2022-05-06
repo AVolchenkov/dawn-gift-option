@@ -424,6 +424,12 @@
 
                 {%- form 'product', product, id: product_form_id, class: 'form', novalidate: 'novalidate', data-type: 'add-to-cart-form' -%}
                   <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}" disabled>
+                  {% if product.metafields.my_fields.monogram == true %}
+                    <div class="line-item-property__field">
+                        <label for="monogram-input">Monogram text</label>
+                        <input id="monogram-input" type="text" name="properties[Monogram text]">
+                    </div>
+                  {% endif %}
                   <div class="product-form__buttons">
                     <button
                       type="submit"
