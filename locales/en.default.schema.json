@@ -718,6 +718,9 @@
             }
           }
         },
+        "gift_option": {
+          "name": "Gift option"
+        },
         "description": {
           "name": "Description"
         },
@@ -1564,6 +1567,9 @@
               "info": "Using the payment methods available on your store, customers see their preferred option, like PayPal or Apple Pay. [Learn more](https:\/\/help.shopify.com\/manual\/using-themes\/change-the-layout\/dynamic-checkout)"
             }
           }
+        },
+        "gift_option": {
+          "name": "Gift option"
         },
         "pickup_availability": {
           "name": "Pickup availability"

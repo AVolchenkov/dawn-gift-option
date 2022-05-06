@@ -1,0 +1,35 @@
+.hide {
+  display: none;
+}
+
+.gift-option__content {
+  padding: 16px 0 26px;
+}
+
+.line-item-property__field {
+  margin: 0 0 6px;
+}
+
+.line-item-property__field textarea {
+  width: 100%;
+  min-height: 100px;
+}
+
+.line-item-property__field input[type="email"],
+.line-item-property__field input[type="text"],
+.line-item-property__field input[type="tel"] {
+  width: 100%;
+  height: 44px;
+}
+
+.line-item-property__field textarea:focus-visible {
+  outline: none;
+  box-shadow: none;
+}
+
+.line-item-property__field input[type="email"]:focus-visible,
+.line-item-property__field input[type="text"]:focus-visible,
+.line-item-property__field input[type="tel"]:focus-visible {
+  outline: none;
+  box-shadow: none;
+}
