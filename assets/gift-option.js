@@ -1,25 +1,6 @@
 const variantLabel = document.querySelector(".product-form__input-js");
 const giftOptionContainer = document.querySelector(".gift-option");
 const giftOptionCheckbox = document.querySelector("#gift-option-checkbox");
-const giftOptionTextarea = document.querySelector("#gift-option-textarea");
-// const giftOption = document.querySelector("#gift-option");
-// const giftOptionRadioEmail = document.querySelector("#email-delivery");
-// const giftOptionRadioAddress = document.querySelector("#paper-card-delivery");
-// const giftOptionEmailInputContainer = document.querySelector(".gift-option__email-container");
-// const giftOptionAddressInputContainer = document.querySelector(".gift-option__address-container");
-const giftOptionEmailInput = document.querySelector("#gift-option-email-input");
-const giftOptionAddressFirstName = document.querySelector("#gift-option-address-first-name");
-const giftOptionAddressLastName = document.querySelector("#gift-option-address-last-name");
-const giftOptionAddressCompanyName = document.querySelector("#gift-option-address-company-name");
-const giftOptionAddressAddressName = document.querySelector("#gift-option-address-name");
-const giftOptionAddressCityName = document.querySelector("#gift-option-address-city-name");
-const giftOptionAddressCountryName = document.querySelector("#gift-option-address-country-name");
-const giftOptionAddressZip = document.querySelector("#gift-option-address-zip");
-const giftOptionAddressPhone = document.querySelector("#gift-option-address-phone");
-const giftOptionAddressInputs = document.querySelectorAll(".gift-option-address");
-const giftOptionContent = document.querySelector(".gift-option__content");
-let giftOptionEmailInputValue = "";
-let giftOptionInputValueAddress = ["", "", "", "", "", "", "", "",];
 
 let giftOptionBlock = document.createElement('div');
 let giftOptionRadioEmailBlock = document.createElement('div');
@@ -89,15 +70,6 @@ giftOptionRadioEmailBlock.innerHTML = giftOptionEmailInnerHtml
 giftOptionRadioAddressBlock.innerHTML = giftOptionAddressInnerHtml
 
 
-
-const validateEmail = (email) => {
-  return String(email)
-    .toLowerCase()
-    .match(
-      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-    );
-};
-
 function giftOptionHandler() {
   giftOptionCheckbox.addEventListener("click", function (e) {
     if (giftOptionCheckbox.checked) {
@@ -127,114 +99,17 @@ function giftOptionHandler() {
           }
         }
       })
-      // giftOptionContent.classList.remove("hide");
-      // giftOptionRadioEmail.type = "radio";
-      // giftOptionRadioAddress.type = "radio";
-
-
     } else {
       giftOptionBlock.remove()
-      //   giftOptionContent.classList.add("hide");
-      //   giftOption.value = "";
-      //   giftOptionRadioEmail.type = "hidden";
-      //   giftOptionRadioAddress.type = "hidden";
-
-      //   giftOptionAddressFirstName.type = "hidden";
-      //   giftOptionAddressLastName.type = "hidden";
-      //   giftOptionAddressCompanyName.type = "hidden";
-      //   giftOptionAddressAddressName.type = "hidden";
-      //   giftOptionAddressCityName.type = "hidden";
-      //   giftOptionAddressCountryName.type = "hidden";
-      //   giftOptionAddressZip.type = "hidden";
-      //   giftOptionAddressPhone.type = "hidden";
-      //   giftOptionEmailInput.type = "hidden";
-      //   giftOptionAddressInputs.forEach((element, index) => {
-      //     element.value = ""
-      //   })
-      //   giftOptionEmailInput.value = "";
-      // }
-      // if (giftOptionRadioEmail.checked) {
-      //   giftOptionEmailInputContainer.classList.remove("hide");
-      //   giftOptionAddressInputContainer.classList.add("hide");
-      //   giftOptionEmailInput.type = "email";
-      //   giftOptionEmailInput.value = giftOptionEmailInputValue;
-      // }
-      // if (giftOptionRadioAddress.checked) {
-      //   giftOptionEmailInputContainer.classList.add("hide");
-      //   giftOptionAddressInputContainer.classList.remove("hide");
-      //   giftOptionAddressFirstName.type = "text";
-      //   giftOptionAddressFirstName.type = "text";
-      //   giftOptionAddressLastName.type = "text";
-      //   giftOptionAddressCompanyName.type = "text";
-      //   giftOptionAddressAddressName.type = "text";
-      //   giftOptionAddressCityName.type = "text";
-      //   giftOptionAddressCountryName.type = "text";
-      //   giftOptionAddressZip.type = "text";
-      //   giftOptionAddressPhone.type = "tel";
-      //   giftOptionAddressInputs.forEach((element, index) => {
-      //     element.value = giftOptionInputValueAddress[index]
-      //   })
     }
   })
-
-  // giftOptionRadioEmail.addEventListener("click", function (e) {
-  //   if (giftOptionRadioEmail.checked) {
-  //     giftOptionEmailInputContainer.classList.remove("hide");
-  //     giftOptionAddressInputContainer.classList.add("hide");
-  //     giftOptionEmailInput.value = giftOptionEmailInputValue;
-  //     giftOptionAddressInputs.forEach((element, index) => {
-  //       element.value = ""
-  //     })
-  //     giftOptionEmailInput.type = "email";
-  //     giftOptionAddressFirstName.type = "hidden";
-  //     giftOptionAddressLastName.type = "hidden";
-  //     giftOptionAddressCompanyName.type = "hidden";
-  //     giftOptionAddressAddressName.type = "hidden";
-  //     giftOptionAddressCityName.type = "hidden";
-  //     giftOptionAddressCountryName.type = "hidden";
-  //     giftOptionAddressZip.type = "hidden";
-  //     giftOptionAddressPhone.type = "hidden";
-  //   }
-  // })
-
-  // giftOptionEmailInput.addEventListener("change", function (e) {
-  //   giftOptionEmailInputValue = e.target.value;
-  // })
-
-  // giftOptionAddressInputs.forEach((element, index) => {
-  //   element.addEventListener("change", function (e) {
-  //     giftOptionInputValueAddress[index] = e.target.value;
-  //   })
-  // })
-
-  // giftOptionRadioAddress.addEventListener("click", function (e) {
-  //   if (giftOptionRadioAddress.checked) {
-  //     giftOptionEmailInputContainer.classList.add("hide");
-  //     giftOptionAddressInputContainer.classList.remove("hide");
-  //     giftOptionEmailInput.value = "";
-  //     giftOptionAddressInputs.forEach((element, index) => {
-  //       element.value = giftOptionInputValueAddress[index]
-  //     })
-  //     giftOptionEmailInput.type = "hidden";
-  //     giftOptionAddressFirstName.type = "text";
-  //     giftOptionAddressFirstName.type = "text";
-  //     giftOptionAddressLastName.type = "text";
-  //     giftOptionAddressCompanyName.type = "text";
-  //     giftOptionAddressAddressName.type = "text";
-  //     giftOptionAddressCityName.type = "text";
-  //     giftOptionAddressCountryName.type = "text";
-  //     giftOptionAddressZip.type = "text";
-  //     giftOptionAddressPhone.type = "tel";
-  //   }
-  // })
 }
 
 window.addEventListener("load", function () {
-  if (giftOptionMetafieldEnable && giftOptionPriceValue >= 5000) { // if giftOptionCustomerLogin
+  if (giftOptionMetafieldEnable && giftOptionPriceValue >= 5000 && giftOptionCustomerLogin) { // if giftOptionCustomerLogin
     giftOptionContainer.classList.remove("hide")
   }
   giftOptionCheckbox.checked = false;
-  // giftOptionTextarea.value = "";
   giftOptionHandler()
 })
 
@@ -244,33 +119,14 @@ variantLabel.addEventListener("click", function () {
 
 function checkVariant() {
   giftOptionBlock.remove()
-  
   giftOptionCheckbox.checked = false;
-  // giftOptionRadioEmail.type = "hidden";
-  // giftOptionRadioAddress.type = "hidden";
-  // giftOptionEmailInput.type = "hidden";
-  // giftOptionAddressFirstName.type = "hidden";
-  // giftOptionAddressLastName.type = "hidden";
-  // giftOptionAddressCompanyName.type = "hidden";
-  // giftOptionAddressAddressName.type = "hidden";
-  // giftOptionAddressCityName.type = "hidden";
-  // giftOptionAddressCountryName.type = "hidden";
-  // giftOptionAddressZip.type = "hidden";
-  // giftOptionAddressPhone.type = "hidden";
-  // giftOptionTextarea.value = "";
-  // giftOptionEmailInput.value = "";
-  // giftOptionAddressInputs.forEach((element, index) => {
-  //   element.value = ""
-  // })
-  // giftOptionContent.classList.add("hide");
-  // giftOption.value = "";
+  giftOptionContainer.classList.add("hide")
   setTimeout(() => {
     const url = window.location.href
     const variantIdFromUrl = url.split("?variant=")[1]
 
 
-    if (variantIdFromUrl && giftOptionMetafieldEnable) { // if giftOptionCustomerLogin 
-      console.log(111111);
+    if (variantIdFromUrl && giftOptionMetafieldEnable && giftOptionCustomerLogin) { // if giftOptionCustomerLogin 
       fetch(window.Shopify.routes.root + 'products/' + giftOptionProductHandle + '.js')
         .then(response => {
           return response.json()

@@ -21,7 +21,9 @@
       }
     }
   {%- endstyle -%}
-  <script src="{{ 'gift-option.js' | asset_url }}" defer="defer"></script>
+  {% if product.metafields.my_fields.enable_disable_gift_option == true %}
+    <script src="{{ 'gift-option.js' | asset_url }}" defer="defer"></script>
+  {% endif %}
   <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
 
   {%- assign first_3d_model = product.media | where: "media_type", "model" | first -%}
@@ -422,59 +424,7 @@
                       <div class="line-item-property__field gift-option__checkbox-container">
                         <input id="gift-option-checkbox" type="checkbox">
                         <label for="gift-option-checkbox">Give this product as a gift</label>
-                        <!-- <input type="hidden" name="properties[Gift option]" id="gift-option" value=""> -->
                       </div>
-                      <!-- <div class="gift-option__content hide">
-                        <div class="line-item-property__field gift-option__textarea-container">
-                          <textarea placeholder="Gift message" id="gift-option-textarea" value="" name="properties[Gift message]"></textarea>
-                        </div>
-                        <div class="gift-option__radio-container">
-                          <input type="hidden" id="email-delivery" name="delivery" value="email" required>
-                          <label for="email-delivery">Email</label>
-                        </div>
-                        <div class="line-item-property__field gift-option__email-container hide">
-                          <label for="gift-option-email-input">Email*</label>
-                          <input type="hidden" required name="properties[Email for delivery]" id="gift-option-email-input" value="" placeholder="Email">
-                        </div>
-                        <div class="gift-option__radio-container">
-                          <input type="hidden" id="paper-card-delivery" name="delivery" value="Paper card" required>
-                          <label for="paper-card-delivery">Paper card</label>
-                        </div>
-                        <div class="gift-option__address-container hide">
-                          <div class="line-item-property__field">
-                            <label for="gift-option-address-first-name">{{ 'customer.addresses.first_name' | t }}*</label>
-                            <input type="hidden" id="gift-option-address-first-name" class="gift-option-address" name="properties[First name]" required value="" autocomplete="given-name" placeholder="{{ 'customer.addresses.first_name' | t }}">
-                          </div>
-                          <div class="line-item-property__field">
-                            <label for="gift-option-address-last-name">{{ 'customer.addresses.last_name' | t }}*</label>
-                            <input type="hidden" id="gift-option-address-last-name" class="gift-option-address" name="properties[Last name]" required value="" autocomplete="family-name" placeholder="{{ 'customer.addresses.last_name' | t }}">
-                          </div>
-                          <div class="line-item-property__field">
-                            <label for="gift-option-address-company-name">{{ 'customer.addresses.company' | t }}</label>
-                            <input type="hidden" id="gift-option-address-company-name" class="gift-option-address" name="properties[Company]" value="" autocomplete="organization" placeholder="{{ 'customer.addresses.company' | t }}">
-                          </div>
-                          <div class="line-item-property__field">
-                            <label for="gift-option-address-name">{{ 'customer.addresses.address1' | t }}*</label>
-                            <input type="hidden" id="gift-option-address-name" class="gift-option-address" name="properties[Address]" required value="" autocomplete="address-line1" placeholder="{{ 'customer.addresses.address1' | t }}">
-                          </div>
-                          <div class="line-item-property__field">
-                            <label for="gift-option-address-city-name">{{ 'customer.addresses.city' | t }}*</label>
-                            <input type="hidden" id="gift-option-address-city-name" class="gift-option-address" name="properties[City]" required value="" autocomplete="address-level2" placeholder="{{ 'customer.addresses.city' | t }}">
-                          </div>
-                          <div class="line-item-property__field">
-                            <label for="gift-option-address-country-name">{{ 'customer.addresses.country' | t }}*</label>
-                            <input type="hidden" id="gift-option-address-country-name" class="gift-option-address" name="properties[Country]" required value="" placeholder="Country">
-                          </div>
-                          <div class="line-item-property__field">
-                            <label for="gift-option-address-zip">{{ 'customer.addresses.zip' | t }}*</label>
-                            <input type="hidden" id="gift-option-address-zip" class="gift-option-address" name="properties[Zip]" required value="" autocapitalize="characters" autocomplete="postal-code" placeholder="{{ 'customer.addresses.zip' | t }}">
-                          </div>
-                          <div class="line-item-property__field">
-                            <label for="gift-option-address-phone">{{ 'customer.addresses.phone' | t }}*</label>
-                            <input type="hidden" id="gift-option-address-phone" class="gift-option-address" pattern="[0-9]{10}" name="properties[Phone]" required value="" autocomplete="tel" placeholder="{{ 'customer.addresses.phone' | t }}">
-                          </div>
-                        </div>
-                      </div> -->
                     </div>
                   <div class="product-form__buttons">
                     <button
