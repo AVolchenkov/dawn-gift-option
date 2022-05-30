@@ -10,6 +10,40 @@ if (!customElements.get('product-form')) {
       this.submitButton = this.querySelector('[type="submit"]');
     }
 
+    addMonogram() {
+      const monogramField = document.querySelector("#monogram-input");
+      const addToCartButton = document.querySelector(".product-form__submit");
+
+      addToCartButton.addEventListener('click', function (e) {
+        let formData = {
+          'items': [{
+            'id': 43143726498034,
+            'quantity': monogramField.value.length
+          }]
+        };
+
+        if (monogramField.value.length > 0) {
+          fetch(window.Shopify.routes.root + 'cart/add.js', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(formData)
+          })
+            .then(response => {
+              return response.json();
+            })
+            .then((data) => {
+              console.log(data);
+              console.log(formData);
+            })
+            .catch((error) => {
+              console.error('Error:', error);
+            });
+        }
+      })
+    }
+
     onSubmitHandler(evt) {
       evt.preventDefault();
       if (this.submitButton.getAttribute('aria-disabled') === 'true') return;
@@ -44,7 +78,6 @@ if (!customElements.get('product-form')) {
             this.error = true;
             return;
           }
-
           this.error = false;
           const quickAddModal = this.closest('quick-add-modal');
           if (quickAddModal) {
@@ -55,6 +88,9 @@ if (!customElements.get('product-form')) {
           } else {
             this.cartNotification.renderContents(response);
           }
+        })
+        .then(() => {
+          this.addMonogram();
         })
         .catch((e) => {
           console.error(e);
